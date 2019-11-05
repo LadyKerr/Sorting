@@ -1,15 +1,16 @@
 # TO-DO: Complete the selection_sort() function below
 def selection_sort(arr):
-    # loop through n-1 elements
-    index = range(0, len(arr) -1)
-
-    for i in index:
-        smallest_index = i
-        for j in range(i+1, len(arr)):
+    # Divide the array into sorted & unsorted then loop thru each element
+    for i in range(len(arr) - 1):
+        curr_index = i
+        smallest_index = curr_index
+        # find the smallest element in the unsorted array
+        for j in range(curr_index, len(arr)):
             if arr[j] < arr[smallest_index]:
                 smallest_index = j
-                if smallest_index != i:
-                    arr[smallest_index], arr[i] = arr[i], arr[smallest_index]
+            # put the smallest element at the end of the sorted array
+            # then swap elements
+        arr[smallest_index], arr[curr_index] = arr[curr_index], arr[smallest_index]
     return arr
 
 
